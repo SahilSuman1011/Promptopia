@@ -58,8 +58,8 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone https://github.com/adrianhajdin/project_next_13_ai_prompt_sharing.git
-cd project_next_13_ai_prompt_sharing
+git clone https://github.com/SahilSuman1011/Promptopia.git
+cd project
 ```
 
 **Installation**
@@ -75,15 +75,14 @@ npm install
 Create a new file named `.env` in the root of your project and add the following content:
 
 ```env
-NEXTAUTH_URL=http://localhost:3000
-NEXTAUTH_URL_INTERNAL=http://localhost:3000
-NEXTAUTH_SECRET=
-GOOGLE_ID=
-GOOGLE_CLIENT_SECRET=
 MONGODB_URI=
+MONGODB_USERNAME=
+MONGODB_PASSWORD=
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
 ```
 
-Replace the placeholder values with your actual credentials. You can obtain these credentials by signing up on these corresponding websites from [Google Cloud Console](https://console.cloud.google.com/welcome?rapt=AEjHL4MBaLLneW6OfAHf_zgms1eWZFw1wdy0_KIC4uh1nEqh2m4ojOvrXNlzJ4h7CZTkpiWgcsoHbUvS-FMdCP7WIkaVlPAeU7cnVR6Y0wJHeLMOtU6KAzA&project=promptopia-385410), [Cryptpool](https://www.cryptool.org/en/cto/openssl) (for random Auth Secret), and [MongoDB](https://www.mongodb.com/). 
+Replace the placeholder values with your actual credentials. You can obtain these credentials by signing up on these corresponding websites from [Clerk Auth](https://clerk.com/), and [MongoDB](https://www.mongodb.com/). 
 
 **Running the Project**
 
