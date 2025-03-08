@@ -14,7 +14,7 @@ Promptopia - Next.js 14 AI Prompt Sharing Application
 
 ## <a name="introduction">🤖 Introduction</a>
 
-A Next.js application that highlights the key features of Next.js along with a comprehensive CRUD AI Prompt sharing system utilizing a MongoDB database and implementing Clerk authentication.
+A Next.js application that highlights the key features of Next.js along with a comprehensive CRUD AI Prompt sharing system utilizing a MongoDB database and implementing Google Next-Auth authentication.
 
 ## <a name="tech-stack">⚙️ Tech Stack</a>
 
