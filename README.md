@@ -1,5 +1,6 @@
 # Promptopia
 Promptopia - Next.js 14 AI Prompt Sharing Application
+## <a name="Landing page">Home</a>
 ![image](https://github.com/user-attachments/assets/bc8434fd-5305-486c-808c-8b60a0ee5500)
 
 
