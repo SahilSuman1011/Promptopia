@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-let isConnected = false; // track the connection
+let isConnected = false;
 
 export const connectToDB = async () => {
   mongoose.set('strictQuery', true);
@@ -11,24 +11,14 @@ export const connectToDB = async () => {
   }
 
   try {
-    const options = {
-      dbName: "share_prompt",
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      // Conditional auth: only add if provided
-      ...(process.env.MONGODB_USERNAME && process.env.MONGODB_PASSWORD && {
-        auth: {
-          username: process.env.MONGODB_USERNAME,
-          password: process.env.MONGODB_PASSWORD,
-        },
-      }),
-    };
+    const MONGO_URI = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@<cluster>.mongodb.net/share_prompt?retryWrites=true&w=majority`;
 
-    await mongoose.connect(process.env.MONGODB_URI, options);
+    await mongoose.connect(MONGO_URI, { dbName: "share_prompt" });
+
     isConnected = true;
-    console.log('MongoDB connected successfully');
+    console.log('✅ MongoDB connected successfully');
   } catch (error) {
-    console.error('MongoDB connection error:', error);
-    throw error; // rethrow so callers can handle errors if needed
+    console.error('❌ MongoDB connection error:', error);
+    throw error;
   }
 };
