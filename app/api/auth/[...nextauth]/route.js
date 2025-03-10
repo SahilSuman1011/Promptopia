@@ -1,4 +1,4 @@
-import NextAuth from 'next-auth';
+import NextAuth from 'next-auth'; 
 import GoogleProvider from 'next-auth/providers/google';
 
 import User from './../../../../models/user';
@@ -9,18 +9,24 @@ const handler = NextAuth({
     GoogleProvider({
       clientId: process.env.GOOGLE_ID || '',
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
-    })
+    }),
   ],
-  callback: {
+  callbacks: {
     async session({ session }) {
       try {
+        await connectToDB();
         const sessionUser = await User.findOne({ email: session.user?.email });
-        
-        if (!sessionUser) {
-          throw new Error('Session user not found');
+
+        if (sessionUser) {
+          return {
+            ...session,
+            user: {
+              ...session.user,
+              id: sessionUser._id.toString(),
+            },
+          };
         }
 
-        session.user.id = sessionUser._id.toString();
         return session;
       } catch (error) {
         console.error('Session error:', error);
@@ -35,15 +41,13 @@ const handler = NextAuth({
           throw new Error('No email provided');
         }
 
-        // check if user already exists
         const userExists = await User.findOne({ email: profile.email });
 
-        // if not, create a new document and save user in MongoDB
         if (!userExists) {
           await User.create({
             email: profile.email,
             username: profile.name?.replace(/\s+/g, '').toLowerCase() || '',
-            image: profile.picture || profile.image,
+            image: profile.picture || profile.image || profile.image_url || '',
             name: profile.name || '',
           });
         }
