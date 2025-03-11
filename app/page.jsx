@@ -14,7 +14,20 @@ const Home = () => {
         Promptopia is an open-source AI prompting tool for modern world to discover, create and share creative prompts.
       </p>
 
+        {/* Create Prompt button: visible only on mobile devices */}
+        <div className="sm:hidden mt-4">
+        <Link 
+          href="/create-prompt" 
+          className="px-4 py-2 bg-primary-orange text-white rounded-full shadow-lg"
+        >
+          Create Prompt
+        </Link>
+      </div>
+
       <Feed/>
+      <footer>
+                 <Link href="https://www.github.com/SahilSuman1011/Promptopia"> Made by Sahil Suman with 🧡</Link>
+                </footer>
     </section>
   );
 };
