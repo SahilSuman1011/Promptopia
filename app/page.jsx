@@ -26,7 +26,9 @@ const Home = () => {
 
       <Feed/>
       <footer>
-                 <Link href="https://www.github.com/SahilSuman1011/Promptopia"> Made by Sahil Suman with 🧡</Link>
+                 <Link href="https://www.linkedin.com/in/sahilsuman11/"> Made by 
+                 <span className='text-primary-orange'>Sahil Suman </span>
+                 with 🧡</Link>
                 </footer>
     </section>
   );
