@@ -21,6 +21,16 @@ const RootLayout = ({ children }) => {
           <div className="main">
             <div className="gradient" />
           </div>
+
+           {/* Create Prompt button: visible only on mobile devices */}
+      <div className="sm:hidden mt-4">
+        <Link 
+          href="/create-prompt" 
+          className="px-4 py-2 bg-primary-orange text-white rounded-full shadow-lg"
+        >
+          Create Prompt
+        </Link>
+      </div>
            <footer>
                  <Link href="https://www.github.com/SahilSuman1011/Promptopia"> Made by Sahil Suman with 🧡</Link>
                 </footer>
