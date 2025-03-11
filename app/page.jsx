@@ -27,7 +27,7 @@ const Home = () => {
       <Feed/>
       <footer>
                  <Link href="https://www.linkedin.com/in/sahilsuman11/"> Made by 
-                 <span className='text-primary-orange'>Sahil Suman </span>
+                 <span className='text-primary-orange'> Sahil Suman </span>
                  with 🧡</Link>
                 </footer>
     </section>
