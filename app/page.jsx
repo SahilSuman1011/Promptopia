@@ -1,5 +1,12 @@
-import Feed from '../components/Feed'
-import Link from 'next/link'
+import Feed from '../components/Feed';
+import Link from 'next/link';
+import { Suspense } from 'react';
+
+const Loading = () => (
+  <div className="flex justify-center items-center">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-orange"></div>
+  </div>
+);
 
 const Home = () => {
   return (
@@ -24,7 +31,9 @@ const Home = () => {
         </Link>
       </div>
 
-      <Feed />
+      <Suspense fallback={<Loading />}>
+        <Feed />
+      </Suspense>
       
       <footer className="mt-8 text-center text-sm">
         <Link 
@@ -37,7 +46,7 @@ const Home = () => {
         </Link>
       </footer>
     </section>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
